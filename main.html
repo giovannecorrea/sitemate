@@ -6,11 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sitemate Challenge</title>
     <link rel="stylesheet" href="style.css">
-    <script src="scripts.js"></script>
+    
 </head>
 <body>
-
-    <button>Click me</button>
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn"
+        data-confirmation_message="Are you sure you want to continue?"
+    >Click Me</button>
     
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="confirmation_message"></p>
+        <button>Yes</button>
+        <button>Cancel</button>
+      </div>
+    
+    </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
