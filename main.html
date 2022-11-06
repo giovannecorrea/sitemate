@@ -10,8 +10,10 @@
 </head>
 <body>
     <!-- Trigger/Open The Modal -->
-    <button id="myBtn"
+    <button id="myBtn" onclick="openModal(this)"
         data-confirmation_message="Are you sure you want to continue?"
+        data-yes_message='You just clicked “Yes”'
+        data-cancel_message='You just clicked “Cancel”'
     >Click Me</button>
     
     <!-- The Modal -->
@@ -21,8 +23,8 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <p id="confirmation_message"></p>
-        <button>Yes</button>
-        <button>Cancel</button>
+        <button id="yesBtn" value="">Yes</button>
+        <button id="cancelBtn" value="">Cancel</button>
       </div>
     
     </div>
