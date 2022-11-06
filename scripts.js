@@ -16,6 +16,7 @@ function openModal(btn) {
   document.getElementById("confirmation_message").innerText = btn.dataset.confirmation_message;
   document.getElementById("yesBtn").value = btn.dataset.yes_message;
   document.getElementById("cancelBtn").value = btn.dataset.cancel_message;
+  document.getElementById("msgId").value = btn.id;
   
   modal.style.display = "block";
 }
@@ -25,23 +26,25 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 
-yesBtn.onclick = function() {
-    const msg = document.createElement("p");
-    msg.innerText = document.getElementById("yesBtn").value;
-    document.body.appendChild(msg);
+function print_message(btn) {
+   var msgId = document.getElementById("msgId").value + "_msg";
+    if (document.getElementById(msgId)) {
+        const msg = document.getElementById(msgId);
+        msg.innerText = document.getElementById(btn.id).value;
+    } else {
+        const msg = document.createElement("p");
+        msg.id = document.getElementById("msgId").value + "_msg";
+        msg.innerText = document.getElementById(btn.id).value;
+        const btn_aux = document.getElementById("msgId").value;
+        const btn_elem = document.getElementById(btn_aux);
+        //document.body.appendChild(msg);
+        btn_elem.parentNode.insertBefore(msg, btn_elem.nextSibling);
+    }
     document.getElementById("yesBtn").value = "";
     document.getElementById("cancelBtn").value = "";
     modal.style.display = "none";
 }
 
-cancelBtn.onclick = function() {
-    const msg = document.createElement("p");
-    msg.innerText = document.getElementById("cancelBtn").value;
-    document.body.appendChild(msg);
-    document.getElementById("yesBtn").value = "";
-    document.getElementById("cancelBtn").value = "";
-    modal.style.display = "none";
-}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {

@@ -15,6 +15,15 @@
         data-yes_message='You just clicked “Yes”'
         data-cancel_message='You just clicked “Cancel”'
     >Click Me</button>
+
+    <br /><br />
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn2" onclick="openModal(this)"
+        data-confirmation_message="Are you sure you want to continue?2"
+        data-yes_message='You just clicked “Yes”2'
+        data-cancel_message='You just clicked “Cancel”2'
+    >Click Me2</button>
     
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -23,8 +32,9 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <p id="confirmation_message"></p>
-        <button id="yesBtn" value="">Yes</button>
-        <button id="cancelBtn" value="">Cancel</button>
+        <button id="yesBtn" onclick="print_message(this)" value="">Yes</button>
+        <button id="cancelBtn" onclick="print_message(this)" value="">Cancel</button>
+        <input id="msgId" value="" hidden>
       </div>
     
     </div>
